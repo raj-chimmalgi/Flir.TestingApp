@@ -3,7 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.438
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flir.TestingApp", "Flir.TestingApp\Flir.TestingApp.csproj", "{44A9ED2B-CB8B-40D0-909B-23B8DFF557D1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flir.ServiceClient", "Flir.ServiceClient\Flir.ServiceClient.csproj", "{F336A113-B3C2-4DEC-AA9F-1068388A12E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flir.Entities", "Flir.Entities\Flir.Entities.csproj", "{7EC71C6E-E769-4C9E-8327-C72B0724B1B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flir.TestingApp.BusinessLayer", "Flir.TestingApp.BusinessLayer\Flir.TestingApp.BusinessLayer.csproj", "{46B7D0D5-5D49-4A8B-BC39-5DF992BEEF41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flir.UnitTest", "Flir.UnitTest\Flir.UnitTest.csproj", "{F679DD99-1A0E-49E4-9490-A58159545AF3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flir.CameraTestConsoleApp", "Flir.CameraTestConsoleApp\Flir.CameraTestConsoleApp.csproj", "{FAF65628-BBCC-46AF-A2BD-FA523C7DEBC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +19,26 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{44A9ED2B-CB8B-40D0-909B-23B8DFF557D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44A9ED2B-CB8B-40D0-909B-23B8DFF557D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44A9ED2B-CB8B-40D0-909B-23B8DFF557D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44A9ED2B-CB8B-40D0-909B-23B8DFF557D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F336A113-B3C2-4DEC-AA9F-1068388A12E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F336A113-B3C2-4DEC-AA9F-1068388A12E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F336A113-B3C2-4DEC-AA9F-1068388A12E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F336A113-B3C2-4DEC-AA9F-1068388A12E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7EC71C6E-E769-4C9E-8327-C72B0724B1B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7EC71C6E-E769-4C9E-8327-C72B0724B1B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7EC71C6E-E769-4C9E-8327-C72B0724B1B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7EC71C6E-E769-4C9E-8327-C72B0724B1B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46B7D0D5-5D49-4A8B-BC39-5DF992BEEF41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46B7D0D5-5D49-4A8B-BC39-5DF992BEEF41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46B7D0D5-5D49-4A8B-BC39-5DF992BEEF41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46B7D0D5-5D49-4A8B-BC39-5DF992BEEF41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F679DD99-1A0E-49E4-9490-A58159545AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F679DD99-1A0E-49E4-9490-A58159545AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F679DD99-1A0E-49E4-9490-A58159545AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F679DD99-1A0E-49E4-9490-A58159545AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FAF65628-BBCC-46AF-A2BD-FA523C7DEBC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAF65628-BBCC-46AF-A2BD-FA523C7DEBC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAF65628-BBCC-46AF-A2BD-FA523C7DEBC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAF65628-BBCC-46AF-A2BD-FA523C7DEBC8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

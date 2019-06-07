@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="PowerSupplyService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:2115/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:2115/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:2115/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Flir.Entities" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPowerSupplyService_GetCPowerSupplies_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCPowerSupplies" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_GetCPowerSupplies_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCPowerSuppliesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_GetVoltage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVoltage" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_GetVoltage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVoltageResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_GetCurrent_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrent" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_GetCurrent_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCurrentResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_ConnectToPowerSupply_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToPowerSupply" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_ConnectToPowerSupply_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConnectToPowerSupplyResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_DisconnectPowerSuppy_InputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectPowerSuppy" />
+  </wsdl:message>
+  <wsdl:message name="IPowerSupplyService_DisconnectPowerSuppy_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DisconnectPowerSuppyResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPowerSupplyService">
+    <wsdl:operation name="GetCPowerSupplies">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPowerSupplyService/GetCPowerSupplies" message="tns:IPowerSupplyService_GetCPowerSupplies_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPowerSupplyService/GetCPowerSuppliesResponse" message="tns:IPowerSupplyService_GetCPowerSupplies_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVoltage">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPowerSupplyService/GetVoltage" message="tns:IPowerSupplyService_GetVoltage_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPowerSupplyService/GetVoltageResponse" message="tns:IPowerSupplyService_GetVoltage_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrent">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPowerSupplyService/GetCurrent" message="tns:IPowerSupplyService_GetCurrent_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPowerSupplyService/GetCurrentResponse" message="tns:IPowerSupplyService_GetCurrent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConnectToPowerSupply">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPowerSupplyService/ConnectToPowerSupply" message="tns:IPowerSupplyService_ConnectToPowerSupply_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPowerSupplyService/ConnectToPowerSupplyResponse" message="tns:IPowerSupplyService_ConnectToPowerSupply_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectPowerSuppy">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPowerSupplyService/DisconnectPowerSuppy" message="tns:IPowerSupplyService_DisconnectPowerSuppy_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPowerSupplyService/DisconnectPowerSuppyResponse" message="tns:IPowerSupplyService_DisconnectPowerSuppy_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IPowerSupplyService" type="tns:IPowerSupplyService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetCPowerSupplies">
+      <soap:operation soapAction="http://tempuri.org/IPowerSupplyService/GetCPowerSupplies" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVoltage">
+      <soap:operation soapAction="http://tempuri.org/IPowerSupplyService/GetVoltage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCurrent">
+      <soap:operation soapAction="http://tempuri.org/IPowerSupplyService/GetCurrent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConnectToPowerSupply">
+      <soap:operation soapAction="http://tempuri.org/IPowerSupplyService/ConnectToPowerSupply" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DisconnectPowerSuppy">
+      <soap:operation soapAction="http://tempuri.org/IPowerSupplyService/DisconnectPowerSuppy" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PowerSupplyService">
+    <wsdl:port name="BasicHttpBinding_IPowerSupplyService" binding="tns:BasicHttpBinding_IPowerSupplyService">
+      <soap:address location="http://localhost:2115/PowerSupplyService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

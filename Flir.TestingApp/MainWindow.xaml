@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button Content="Get Cameras" HorizontalAlignment="Left" Margin="80,57,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-5.934,-1.003" Click="Button_Click"/>
+        <ListBox HorizontalAlignment="Left" Height="139" Margin="211,20,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="ListBox_SelectionChanged"/>
+        <Button Content="Get PowerSupplyDevices" HorizontalAlignment="Left" Margin="39,241,0,0" VerticalAlignment="Top" Width="150" RenderTransformOrigin="-3.792,11.154"/>
+        <ListBox HorizontalAlignment="Left" Height="157" Margin="211,184,0,0" VerticalAlignment="Top" Width="100" SelectionChanged="ListBox_SelectionChanged_1"/>
+        <Button Content="Start Streaming" HorizontalAlignment="Left" Margin="382,47,0,0" VerticalAlignment="Top" Width="119"/>
+        <Button Content="Stop Streaming" HorizontalAlignment="Left" Margin="382,72,0,0" VerticalAlignment="Top" Width="119"/>
+        <Button Content="Connect" HorizontalAlignment="Left" Margin="382,226,0,0" VerticalAlignment="Top" Width="119"/>
+        <Button Content="Disconnect" HorizontalAlignment="Left" Margin="382,251,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.482,12.324"/>
+        <Button Content="Connect" HorizontalAlignment="Left" Margin="382,20,0,0" VerticalAlignment="Top" Width="119"/>
+        <Button Content="Disconnect" HorizontalAlignment="Left" Margin="382,105,0,0" VerticalAlignment="Top" Width="119" RenderTransformOrigin="0.482,12.324"/>
+
     </Grid>
 </Window>
