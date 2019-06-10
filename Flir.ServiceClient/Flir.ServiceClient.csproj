@@ -55,9 +55,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="ICameraServiceClient.cs" />
-    <Compile Include="INewPowerSupplyServiceClient.cs" />
     <Compile Include="IPowerSupplyServiceClient.cs" />
-    <Compile Include="NewPowerSupplyServiceClient.cs" />
     <Compile Include="PowerSupplyServiceClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
