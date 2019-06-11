@@ -1,48 +1,58 @@
 ﻿using Flir.Entities;
 using Flir.ServiceClient;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
+using System.Collections.Generic;
 
 namespace Flir.UnitTests
 {
-    [TestClass]
+    [TestFixture]
     public class CameraServiceClientTests
     {
-        private readonly ICameraServiceClient _iCameraServiceClient;
+        private ICameraServiceClient _iCameraServiceClient;
 
-        public CameraServiceClientTests()
+        [SetUp]
+        public void SetUp()
         {
             _iCameraServiceClient = new CameraServiceClient();
         }
 
-        [TestMethod]
-        public void Should_Return_Cameras_GetCamerasTest()
+        [Test]
+        public void GetCameras_WhenCalled_ReturnListOfCameras()
         {
             var result = _iCameraServiceClient.GetCameras();
-            CollectionAssert.AllItemsAreInstancesOfType(result, typeof(Camera));
+            Assert.IsInstanceOf(typeof(List<Camera>), result);
         }
 
-        [TestMethod]
-        public void Can_Camera_DisconnectTest()
+        [Test]
+        public void Connect_WhenCalled_ReturnCamera()
         {
-            Assert.Fail();
+            var result = _iCameraServiceClient.Connect(1);
+
+            Assert.IsInstanceOf(typeof(Camera), result);
         }
 
-        [TestMethod]
-        public void Can_ConnectTest()
+        [Test]
+        public void Disconnect_WhenCalled_ReturnCamera()
         {
-            Assert.Fail();
+            var result = _iCameraServiceClient.Disconnect(1);
+
+            Assert.IsInstanceOf(typeof(Camera), result);
         }
 
-        [TestMethod]
-        public void Can_StartStreamingTest()
+        [Test]
+        public void StartStreaming_WhenCalled_ReturnTrue()
         {
-            Assert.Fail();
+            var result = _iCameraServiceClient.StartStreaming();
+
+            Assert.IsTrue(result);
         }
 
-        [TestMethod]
-        public void Can_StopStreamingTest()
+        [Test]
+        public void StopStreaming_WhenCalled_ReturnTrue()
         {
-            Assert.Fail();
+            var result = _iCameraServiceClient.StopStreaming();
+
+            Assert.IsTrue(result);
         }
     }
 }

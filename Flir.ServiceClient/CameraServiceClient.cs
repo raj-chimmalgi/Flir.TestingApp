@@ -20,7 +20,6 @@ namespace Flir.ServiceClient
 
         public Camera Connect(int id)
         {
-            
             try
             {
                 lstCameras = GetCameras();
@@ -39,7 +38,7 @@ namespace Flir.ServiceClient
         {
             try
             {
-                connectedCamera = null;
+                connectedCamera = new Camera();
             }
             catch (Exception ex)
             {

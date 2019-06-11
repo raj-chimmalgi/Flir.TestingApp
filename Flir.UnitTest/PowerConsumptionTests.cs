@@ -2,7 +2,7 @@
 using Flir.TestingApp.BusinessLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Flir.UnitTest
+namespace Flir.UnitTests
 {
     [TestClass]
     public class PowerConsumptionTests

@@ -1,7 +1,7 @@
 ﻿using Flir.ServiceClient;
 using NUnit.Framework;
 
-namespace Flir.UnitTest
+namespace Flir.UnitTests
 {
     /// <summary>
     ///     Unit tests for PowerSupplyServiceClient
