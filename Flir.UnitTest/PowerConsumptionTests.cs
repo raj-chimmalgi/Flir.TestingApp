@@ -1,62 +1,53 @@
-﻿using Flir.Entities;
-using Flir.TestingApp.BusinessLayer;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Flir.BusinessLayer;
+using Flir.Entities;
+using NUnit.Framework;
 
 namespace Flir.UnitTests
 {
-    [TestClass]
+    [TestFixture]
     public class PowerConsumptionTests
     {
-        private readonly PowerConsumption powerConsumption;
+        private IPowerConsumption _powerConsumption;
 
-        public PowerConsumptionTests()
+        [SetUp]
+        public void SetUp()
         {
-            powerConsumption = new PowerConsumption();
+            _powerConsumption = new PowerConsumption();
         }
 
-        [TestMethod]
-        public void Should_Calculate_PowerConsumptionInWatts()
-        {
-            var powerSupplyDevice = new PowerSupplyDevice();
-            powerSupplyDevice.Voltage = 2.5;
-            powerSupplyDevice.Current = 4;
-
-            var result = powerConsumption.PowerConsumptionInWatts(powerSupplyDevice);
-
-            Assert.AreEqual(10, result);
-        }
-
-        [DataTestMethod]
-        [DataRow(5, 10, 5)]
-        [DataRow(5, 10, 8)]
-        [DataRow(5, 10, 7)]
-        public void Is_Camera_Power_Consumption_Within_Range(double minWatts, double maxWatts, double powerConsupmtion)
+        [Test]
+        [TestCase(5, 10, 5, true)]
+        [TestCase(5, 10, 8, true)]
+        [TestCase(5, 10, 14, false)]
+        public void IsPowerComsumptionWithinRange_WhenCalled_ReturnIsWithinRange(double minWatts, double maxWatts,
+            double powerConsupmtion, bool expectedResult)
         {
             var camera = new Camera
             {
                 PowerConsumption = powerConsupmtion
             };
 
-            var result = powerConsumption.IsPowerComsumptionWithinRange(minWatts, maxWatts, camera);
+            var result = _powerConsumption.IsPowerComsumptionWithinRange(minWatts, maxWatts, camera);
 
-            Assert.IsTrue(result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
 
-        [DataTestMethod]
-        [DataRow(5, 10, 50)]
-        [DataRow(5, 10, 1)]
-        [DataRow(5, 10, 45)]
-        public void Is_Camera_Power_Consumption_Not_Within_Range(double minWatts, double maxWatts,
-            double powerConsupmtion)
+        [Test]
+        [TestCase(2.5, 5.6, 14.0)]
+        [TestCase(5.5, 6.4, 35.2)]
+        [TestCase(3.3, 3.1, 10.23)]
+        public void PowerConsumptionInWatts_WhenCalled_ReturnPowerConsumption(double voltage, double current,
+            double expectedResult)
         {
-            var camera = new Camera
+            var powerSupplyDevice = new PowerSupplyDevice
             {
-                PowerConsumption = powerConsupmtion
+                Voltage = voltage,
+                Current = current
             };
 
-            var result = powerConsumption.IsPowerComsumptionWithinRange(minWatts, maxWatts, camera);
+            var result = _powerConsumption.PowerConsumptionInWatts(powerSupplyDevice);
 
-            Assert.IsFalse(result);
+            Assert.That(result, Is.EqualTo(expectedResult));
         }
     }
 }

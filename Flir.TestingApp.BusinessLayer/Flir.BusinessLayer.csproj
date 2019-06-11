@@ -7,8 +7,8 @@
     <ProjectGuid>{46B7D0D5-5D49-4A8B-BC39-5DF992BEEF41}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Flir.TestingApp.BusinessLayer</RootNamespace>
-    <AssemblyName>Flir.TestingApp.BusinessLayer</AssemblyName>
+    <RootNamespace>Flir.BusinessLayer</RootNamespace>
+    <AssemblyName>Flir.BusinessLayer</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

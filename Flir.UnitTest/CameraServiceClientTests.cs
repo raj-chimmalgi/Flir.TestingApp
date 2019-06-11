@@ -1,27 +1,20 @@
-﻿using Flir.Entities;
+﻿using System.Collections.Generic;
+using Flir.Entities;
 using Flir.ServiceClient;
 using NUnit.Framework;
-using System.Collections.Generic;
 
 namespace Flir.UnitTests
 {
     [TestFixture]
     public class CameraServiceClientTests
     {
-        private ICameraServiceClient _iCameraServiceClient;
-
         [SetUp]
         public void SetUp()
         {
             _iCameraServiceClient = new CameraServiceClient();
         }
 
-        [Test]
-        public void GetCameras_WhenCalled_ReturnListOfCameras()
-        {
-            var result = _iCameraServiceClient.GetCameras();
-            Assert.IsInstanceOf(typeof(List<Camera>), result);
-        }
+        private ICameraServiceClient _iCameraServiceClient;
 
         [Test]
         public void Connect_WhenCalled_ReturnCamera()
@@ -37,6 +30,13 @@ namespace Flir.UnitTests
             var result = _iCameraServiceClient.Disconnect(1);
 
             Assert.IsInstanceOf(typeof(Camera), result);
+        }
+
+        [Test]
+        public void GetCameras_WhenCalled_ReturnListOfCameras()
+        {
+            var result = _iCameraServiceClient.GetCameras();
+            Assert.IsInstanceOf(typeof(List<Camera>), result);
         }
 
         [Test]

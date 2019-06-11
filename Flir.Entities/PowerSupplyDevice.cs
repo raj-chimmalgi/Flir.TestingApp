@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-
-namespace Flir.Entities
+﻿namespace Flir.Entities
 {
-
     public class PowerSupplyDevice
     {
         public string ComPort { get; set; }

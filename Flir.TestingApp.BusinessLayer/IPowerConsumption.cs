@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Flir.Entities;
+﻿using Flir.Entities;
 
-namespace Flir.TestingApp.BusinessLayer
+namespace Flir.BusinessLayer
 {
     public interface IPowerConsumption
     {

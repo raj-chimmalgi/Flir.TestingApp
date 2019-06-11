@@ -1,16 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Flir.Entities;
 
 namespace Flir.ServiceClient
 {
     public class CameraServiceClient : ICameraServiceClient
     {
-        private List<Camera> lstCameras;
         private Camera connectedCamera;
+        private List<Camera> lstCameras;
 
         public CameraServiceClient()
         {
@@ -52,9 +50,9 @@ namespace Flir.ServiceClient
         {
             lstCameras = new List<Camera>
             {
-                new Camera(){Id = 1, Name = "Cam1", PowerConsumption = null},
-                new Camera(){Id = 2, Name = "Cam2", PowerConsumption = null},
-                new Camera(){Id = 3, Name = "Cam3", PowerConsumption = null}
+                new Camera {Id = 1, Name = "Cam1", PowerConsumption = null},
+                new Camera {Id = 2, Name = "Cam2", PowerConsumption = null},
+                new Camera {Id = 3, Name = "Cam3", PowerConsumption = null}
             };
 
             return lstCameras;

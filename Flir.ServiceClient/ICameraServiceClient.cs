@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Flir.Entities;
 
 namespace Flir.ServiceClient
@@ -14,6 +10,5 @@ namespace Flir.ServiceClient
         Camera Disconnect(int id);
         bool StartStreaming();
         bool StopStreaming();
-
     }
 }

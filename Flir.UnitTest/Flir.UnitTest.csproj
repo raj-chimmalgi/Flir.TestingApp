@@ -70,9 +70,9 @@
       <Project>{f336a113-b3c2-4dec-aa9f-1068388a12e3}</Project>
       <Name>Flir.ServiceClient</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Flir.TestingApp.BusinessLayer\Flir.TestingApp.BusinessLayer.csproj">
+    <ProjectReference Include="..\Flir.TestingApp.BusinessLayer\Flir.BusinessLayer.csproj">
       <Project>{46b7d0d5-5d49-4a8b-bc39-5df992beef41}</Project>
-      <Name>Flir.TestingApp.BusinessLayer</Name>
+      <Name>Flir.BusinessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
