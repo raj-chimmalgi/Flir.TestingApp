@@ -1,5 +1,8 @@
 ﻿using Flir.ServiceClient;
 using NUnit.Framework;
+using System.Linq;
+using Flir.Entities;
+using System.Collections.Generic;
 
 namespace Flir.UnitTests
 {
@@ -38,7 +41,7 @@ namespace Flir.UnitTests
         }
 
         [Test]
-        public void Disconnect_WhenCalled_NullPowerSupplyDevice()
+        public void Disconnect_WhenCalled_ReturnNullPowerSupplyDevice()
         {
             var result = _powerSupplyServiceClient.Disconnect();
 
@@ -67,6 +70,16 @@ namespace Flir.UnitTests
             var result = _powerSupplyServiceClient.GetVoltage();
 
             Assert.That(result, Is.EqualTo(6.5));
+        }
+
+        [Test]
+        public void GetPowerSupplyDevices_WhenCalled_ReturnPowerSupplyDevices()
+        {
+            var result = _powerSupplyServiceClient.GetPowerSupplyDevices();
+
+            Assert.IsInstanceOf(typeof(List<PowerSupplyDevice>), result);
+
+            Assert.That(result.Count(), Is.GreaterThanOrEqualTo(1));
         }
     }
 }

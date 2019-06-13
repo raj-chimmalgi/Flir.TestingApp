@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Flir.Entities;
 using Flir.ServiceClient;
 using NUnit.Framework;
@@ -36,7 +37,9 @@ namespace Flir.UnitTests
         public void GetCameras_WhenCalled_ReturnListOfCameras()
         {
             var result = _iCameraServiceClient.GetCameras();
+
             Assert.IsInstanceOf(typeof(List<Camera>), result);
+            Assert.That(result.Count(), Is.GreaterThanOrEqualTo(1));
         }
 
         [Test]
