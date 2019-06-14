@@ -61,8 +61,7 @@ namespace Flir.CameraTestConsoleApp
         {
             msg = "";
 
-            foreach (var p in powerSupplyServiceClient.GetPowerSupplyDevices())
-                msg += $"Com Port:{p.ComPort}\n";
+            powerSupplyServiceClient.GetPowerSupplyDevices().ForEach(p => msg += $"Com Port:{p.ComPort}\n");
             
             WriteToScreen(msg);
 
@@ -79,7 +78,10 @@ namespace Flir.CameraTestConsoleApp
 
         private static Camera ConnectToCamera(ICameraServiceClient cameraServiceClient)
         {
-            foreach (var c in cameraServiceClient.GetCameras()) Console.WriteLine("ID:{0} Name:{1}", c.Id, c.Name);
+            msg = "";
+            cameraServiceClient.GetCameras().ForEach(c => msg += $"ID:{c.Id} Name:{c.Name}\n");
+
+            WriteToScreen(msg);
 
             Console.WriteLine("Select a camera by ID: ");
             var cameraId = Convert.ToInt32(Console.ReadLine());
