@@ -20,11 +20,11 @@ namespace Flir.UnitTests
         [TestCase(5, 10, 8, true)]
         [TestCase(5, 10, 14, false)]
         public void IsPowerComsumptionWithinRange_WhenCalled_ReturnIsWithinRange(double minWatts, double maxWatts,
-            double powerConsupmtion, bool expectedResult)
+            double powerConsumption, bool expectedResult)
         {
             var camera = new Camera
             {
-                PowerConsumption = powerConsupmtion
+                PowerConsumption = powerConsumption
             };
 
             var result = _powerConsumption.IsPowerComsumptionWithinRange(minWatts, maxWatts, camera);

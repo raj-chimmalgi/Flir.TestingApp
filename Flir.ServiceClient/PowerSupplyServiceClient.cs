@@ -18,6 +18,18 @@ namespace Flir.ServiceClient
             ConnectedPowerSupplyDevice = new PowerSupplyDevice();
         }
 
+        public List<PowerSupplyDevice> GetPowerSupplyDevices()
+        {
+            //SDK get list of power supplies
+            lstPowerSupply = new List<PowerSupplyDevice>
+            {
+                new PowerSupplyDevice {ComPort = "COM1", Voltage = 5.5, Current = 9.98},
+                new PowerSupplyDevice {ComPort = "COM2", Voltage = 6.5, Current = 4.68},
+                new PowerSupplyDevice {ComPort = "COM3", Voltage = 15.5, Current = 9.58}
+            };
+            return lstPowerSupply;
+        }
+
         public PowerSupplyDevice Connect(string comPort)
         {
             try
@@ -34,6 +46,7 @@ namespace Flir.ServiceClient
             return ConnectedPowerSupplyDevice;
         }
 
+
         public PowerSupplyDevice Disconnect()
         {
             try
@@ -47,18 +60,6 @@ namespace Flir.ServiceClient
             }
 
             return ConnectedPowerSupplyDevice;
-        }
-
-        public List<PowerSupplyDevice> GetPowerSupplyDevices()
-        {
-            //SDK get list of power supplies
-            lstPowerSupply = new List<PowerSupplyDevice>
-            {
-                new PowerSupplyDevice {ComPort = "COM1", Voltage = 5.5, Current = 9.98},
-                new PowerSupplyDevice {ComPort = "COM2", Voltage = 6.5, Current = 4.68},
-                new PowerSupplyDevice {ComPort = "COM3", Voltage = 15.5, Current = 9.58}
-            };
-            return lstPowerSupply;
         }
 
         public double GetCurrent()

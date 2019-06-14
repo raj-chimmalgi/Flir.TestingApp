@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System.Linq;
 using Flir.Entities;
 using System.Collections.Generic;
+using Moq;
 
 namespace Flir.UnitTests
 {
@@ -12,13 +13,21 @@ namespace Flir.UnitTests
     [TestFixture]
     public class PowerSupplyServiceClientTests
     {
+        private IPowerSupplyServiceClient _powerSupplyServiceClient;
+        private Mock<IPowerSupplyServiceClient> _powerSupplyServiceClientMock;
+
         [SetUp]
         public void SetUp()
         {
             _powerSupplyServiceClient = new PowerSupplyServiceClient();
-        }
 
-        private IPowerSupplyServiceClient _powerSupplyServiceClient;
+            _powerSupplyServiceClientMock.Setup(p => p.GetPowerSupplyDevices()).Returns(new List<PowerSupplyDevice>
+            {
+                new PowerSupplyDevice {ComPort = "COM1", Voltage = 5.5, Current = 9.98},
+                new PowerSupplyDevice {ComPort = "COM2", Voltage = 6.5, Current = 4.68},
+                new PowerSupplyDevice {ComPort = "COM3", Voltage = 15.5, Current = 9.58}
+            });
+        }
 
         [Test]
         public void Connect_CannotConnect_ReturnNullPowerSupplyDevice()
@@ -60,6 +69,17 @@ namespace Flir.UnitTests
             Assert.That(result, Is.EqualTo(4.68));
         }
 
+
+        [Test]
+        public void GetPowerSupplyDevices_WhenCalled_ReturnPowerSupplyDevices()
+        {
+            var result = _powerSupplyServiceClient.GetPowerSupplyDevices();
+
+            Assert.IsInstanceOf(typeof(List<PowerSupplyDevice>), result);
+
+            Assert.That(result.Count(), Is.GreaterThanOrEqualTo(1));
+        }
+
         [Test]
         public void GetVoltage_WhenCalled_ReturnPowerSupplyDeviceUpdatedWithVoltage()
         {
@@ -70,16 +90,6 @@ namespace Flir.UnitTests
             var result = _powerSupplyServiceClient.GetVoltage();
 
             Assert.That(result, Is.EqualTo(6.5));
-        }
-
-        [Test]
-        public void GetPowerSupplyDevices_WhenCalled_ReturnPowerSupplyDevices()
-        {
-            var result = _powerSupplyServiceClient.GetPowerSupplyDevices();
-
-            Assert.IsInstanceOf(typeof(List<PowerSupplyDevice>), result);
-
-            Assert.That(result.Count(), Is.GreaterThanOrEqualTo(1));
         }
     }
 }
