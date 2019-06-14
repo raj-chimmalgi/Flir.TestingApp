@@ -7,43 +7,41 @@ namespace Flir.ServiceClient
 {
     public class PowerSupplyServiceClient : IPowerSupplyServiceClient
     {
-        private PowerSupplyDevice ConnectedPowerSupplyDevice;
-        private double Current;
-        private List<PowerSupplyDevice> lstPowerSupply;
-        private double Voltage;
+        private PowerSupplyDevice _connectedPowerSupplyDevice;
+        private List<PowerSupplyDevice> _lstPowerSupply;
 
         public PowerSupplyServiceClient()
         {
-            lstPowerSupply = new List<PowerSupplyDevice>();
-            ConnectedPowerSupplyDevice = new PowerSupplyDevice();
+            _lstPowerSupply = new List<PowerSupplyDevice>();
+            _connectedPowerSupplyDevice = new PowerSupplyDevice();
         }
 
         public List<PowerSupplyDevice> GetPowerSupplyDevices()
         {
             //SDK get list of power supplies
-            lstPowerSupply = new List<PowerSupplyDevice>
+            _lstPowerSupply = new List<PowerSupplyDevice>
             {
                 new PowerSupplyDevice {ComPort = "COM1", Voltage = 5.5, Current = 9.98},
                 new PowerSupplyDevice {ComPort = "COM2", Voltage = 6.5, Current = 4.68},
                 new PowerSupplyDevice {ComPort = "COM3", Voltage = 15.5, Current = 9.58}
             };
-            return lstPowerSupply;
+            return _lstPowerSupply;
         }
 
         public PowerSupplyDevice Connect(string comPort)
         {
             try
             {
-                lstPowerSupply = GetPowerSupplyDevices();
-                ConnectedPowerSupplyDevice = lstPowerSupply.Where(x => x.ComPort == comPort).FirstOrDefault();
+                _lstPowerSupply = GetPowerSupplyDevices();
+                _connectedPowerSupplyDevice = _lstPowerSupply.FirstOrDefault(x => x.ComPort == comPort);
                 //SDK physical connection to power supply
             }
             catch (Exception ex)
             {
-                ConnectedPowerSupplyDevice = null;
+                _connectedPowerSupplyDevice = null;
             }
 
-            return ConnectedPowerSupplyDevice;
+            return _connectedPowerSupplyDevice;
         }
 
 
@@ -52,25 +50,25 @@ namespace Flir.ServiceClient
             try
             {
                 //SDK physical disconnection to power supply
-                ConnectedPowerSupplyDevice = null;
+                _connectedPowerSupplyDevice = null;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
             }
 
-            return ConnectedPowerSupplyDevice;
+            return _connectedPowerSupplyDevice;
         }
 
         public double GetCurrent()
         {
-            return ConnectedPowerSupplyDevice.Current;
+            return _connectedPowerSupplyDevice.Current;
         }
 
 
         public double GetVoltage()
         {
-            return ConnectedPowerSupplyDevice.Voltage;
+            return _connectedPowerSupplyDevice.Voltage;
         }
     }
 }
