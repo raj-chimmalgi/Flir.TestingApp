@@ -38,7 +38,7 @@ namespace Flir.CameraTestConsoleApp
 
             camera.PowerConsumption = powerConsumption.PowerConsumptionInWatts(powerSupply);
 
-            var passed = powerConsumption.IsPowerComsumptionWithinRange(Convert.ToDouble(lstRange[0]),
+            var passed = powerConsumption.IsPowerConsumptionWithinRange(Convert.ToDouble(lstRange[0]),
                 Convert.ToDouble(lstRange[1]), camera);
 
             msg = passed ? "Test Passed!" : "Test Failed";

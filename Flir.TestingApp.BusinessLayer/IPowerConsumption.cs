@@ -6,6 +6,6 @@ namespace Flir.BusinessLayer
     {
         double PowerConsumptionInWatts(PowerSupplyDevice powerSupplyDevice);
 
-        bool IsPowerComsumptionWithinRange(double minWatts, double maxWatts, Camera camera);
+        bool IsPowerConsumptionWithinRange(double minWatts, double maxWatts, Camera camera);
     }
 }

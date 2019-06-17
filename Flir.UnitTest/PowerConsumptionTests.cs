@@ -7,7 +7,7 @@ namespace Flir.UnitTests
     [TestFixture]
     public class PowerConsumptionTests
     {
-        private IPowerConsumption _powerConsumption;
+        private PowerConsumption _powerConsumption;
 
         [SetUp]
         public void SetUp()
@@ -19,7 +19,7 @@ namespace Flir.UnitTests
         [TestCase(5, 10, 5, true)]
         [TestCase(5, 10, 8, true)]
         [TestCase(5, 10, 14, false)]
-        public void IsPowerComsumptionWithinRange_WhenCalled_ReturnIsWithinRange(double minWatts, double maxWatts,
+        public void IsPowerConsumptionWithinRange_WhenCalled_ReturnIsWithinRange(double minWatts, double maxWatts,
             double powerConsumption, bool expectedResult)
         {
             var camera = new Camera
@@ -27,7 +27,7 @@ namespace Flir.UnitTests
                 PowerConsumption = powerConsumption
             };
 
-            var result = _powerConsumption.IsPowerComsumptionWithinRange(minWatts, maxWatts, camera);
+            var result = _powerConsumption.IsPowerConsumptionWithinRange(minWatts, maxWatts, camera);
 
             Assert.That(result, Is.EqualTo(expectedResult));
         }

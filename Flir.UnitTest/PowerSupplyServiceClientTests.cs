@@ -13,7 +13,7 @@ namespace Flir.UnitTests
     [TestFixture]
     public class PowerSupplyServiceClientTests
     {
-        private IPowerSupplyServiceClient _powerSupplyServiceClient;
+        private PowerSupplyServiceClient _powerSupplyServiceClient;
         private readonly Mock<IPowerSupplyServiceClient> _powerSupplyServiceClientMock = new Mock<IPowerSupplyServiceClient>();
 
         [SetUp]

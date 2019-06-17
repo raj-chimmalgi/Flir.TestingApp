@@ -21,7 +21,7 @@ namespace Flir.ServiceClient
             try
             {
                 lstCameras = GetCameras();
-                connectedCamera = lstCameras.Where(x => x.Id == id).FirstOrDefault();
+                connectedCamera = lstCameras.FirstOrDefault(x => x.Id == id);
             }
             catch (Exception ex)
             {

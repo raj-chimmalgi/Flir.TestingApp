@@ -4,7 +4,7 @@ namespace Flir.BusinessLayer
 {
     public class PowerConsumption : IPowerConsumption
     {
-        public bool IsPowerComsumptionWithinRange(double minWatts, double maxWatts, Camera camera)
+        public bool IsPowerConsumptionWithinRange(double minWatts, double maxWatts, Camera camera)
         {
             if (camera.PowerConsumption >= minWatts && camera.PowerConsumption <= maxWatts) return true;
 
