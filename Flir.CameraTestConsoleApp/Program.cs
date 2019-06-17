@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Flir.BusinessLayer;
 using Flir.Entities;
 using Flir.ServiceClient;
@@ -8,6 +9,8 @@ namespace Flir.CameraTestConsoleApp
     internal class Program
     {
         static string msg;
+
+        static ConsoleLogger _consoleLogger = new ConsoleLogger();
 
         private static void Main(string[] args)
         {
@@ -33,8 +36,15 @@ namespace Flir.CameraTestConsoleApp
 
             var lstRange = range.Split(',');
 
+            if (lstRange.Length != 2)
+            {
+                _consoleLogger.LogError("Invalid Range");
+                throw new ArgumentException("Invalid acceptable power consumption range");     
+            }
 
-            IPowerConsumption powerConsumption = new PowerConsumption();
+
+            IPowerConsumption powerConsumption = new PowerConsumption(new ConsoleLogger());
+//            IPowerConsumption powerConsumption = new PowerConsumption(new FileLogger("C:\\Users\\chimm\\Desktop\\log.txt"));
 
             camera.PowerConsumption = powerConsumption.PowerConsumptionInWatts(powerSupply);
 
@@ -42,6 +52,7 @@ namespace Flir.CameraTestConsoleApp
                 Convert.ToDouble(lstRange[1]), camera);
 
             msg = passed ? "Test Passed!" : "Test Failed";
+
             WriteToScreen(msg);
         }
 

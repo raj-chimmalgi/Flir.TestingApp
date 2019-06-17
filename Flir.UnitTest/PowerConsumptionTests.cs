@@ -12,7 +12,7 @@ namespace Flir.UnitTests
         [SetUp]
         public void SetUp()
         {
-            _powerConsumption = new PowerConsumption();
+            _powerConsumption = new PowerConsumption(new ConsoleLogger());
         }
 
         [Test]
